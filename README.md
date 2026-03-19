@@ -9,8 +9,9 @@
 Coming soon.
 
 ## Projets
-- [Standards](./standards/) en construction avec la communauté
-- [Docs](./docs/) documentation technique
+- [Standards](./standards/) construction des standarts avec la communauté 
+- [Docs](./docs/) documentation technique (à venir)
+- [Ploxions](./ploxions/) liste/propositions de ploxions (à venir)
 
 ## Contribuer
 Discord : [lien](https://discord.gg/HQebyWn5tR)  

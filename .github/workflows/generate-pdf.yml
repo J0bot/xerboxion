@@ -20,6 +20,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Install fonts
+        run: apk add --no-cache font-dejavu
+
       - name: Prepare markdown (strip manual TOC)
         run: |
           cd paper
@@ -66,7 +69,7 @@ jobs:
             --pdf-engine=xelatex \
             --toc \
             --toc-depth=3 \
-            --highlight-style=tango
+            --syntax-highlighting=tango
 
       - name: Cleanup temp files
         run: |

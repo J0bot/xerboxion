@@ -20,16 +20,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install fonts and git
-        run: apk add --no-cache font-dejavu git
+      - name: Install fonts
+        run: apk add --no-cache font-dejavu
 
       - name: Prepare markdown (strip manual TOC)
         run: |
-          cd paper
-          # Remove the manual TOC table between "## Table des matières" and the next "---"
           python3 -c "
           import re
-          with open('README.md', 'r', encoding='utf-8') as f:
+          with open('paper/README.md', 'r', encoding='utf-8') as f:
               content = f.read()
           content = re.sub(
               r'## Table des matières\n+\|.*?\n\n---',
@@ -37,7 +35,7 @@ jobs:
               content,
               flags=re.DOTALL
           )
-          with open('paper_clean.md', 'w', encoding='utf-8') as f:
+          with open('paper/paper_clean.md', 'w', encoding='utf-8') as f:
               f.write(content)
           "
 
@@ -63,17 +61,32 @@ jobs:
 
       - name: Generate PDF
         run: |
-          cd paper
-          pandoc metadata.yaml paper_clean.md \
-            -o xerboxion_paper.pdf \
+          pandoc paper/metadata.yaml paper/paper_clean.md \
+            -o paper/xerboxion_paper.pdf \
             --pdf-engine=xelatex \
             --toc \
             --toc-depth=3 \
             --syntax-highlighting=tango
 
-      - name: Cleanup temp files
-        run: |
-          rm -f paper/paper_clean.md paper/metadata.yaml
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: xerboxion_paper
+          path: paper/xerboxion_paper.pdf
+
+  commit-pdf:
+    needs: generate-pdf
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download PDF artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: xerboxion_paper
+          path: paper/
 
       - name: Commit PDF
         run: |

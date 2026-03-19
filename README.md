@@ -4,6 +4,7 @@
 
 ## Prépapier
 - [Lire le draft](./paper/README.md)
+- [Version PDF du draft](./paper/xerboxion_paper.pdf)
 
 ## Livre
 > Livre/papier sur ma vision personelle du projet xerboxion, analyse du cheminement mental de l'idée initiale jusqu'à aujourd'hui, le détail des recherches, extrapolations de l'extrapolation et conclusions.  

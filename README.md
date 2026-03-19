@@ -2,7 +2,7 @@
 
 > Créer le monde dans lequel on veut vivre.
 
-## Prépapier
+## Préprint
 - [Lire le draft](./paper/README.md)
 - [Version PDF du draft](./paper/xerboxion_paper.pdf)
 

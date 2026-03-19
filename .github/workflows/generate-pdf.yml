@@ -1,0 +1,85 @@
+name: Generate Paper PDF
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'paper/README.md'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate-pdf:
+    runs-on: ubuntu-latest
+    container:
+      image: pandoc/extra:latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Prepare markdown (strip manual TOC)
+        run: |
+          cd paper
+          # Remove the manual TOC table between "## Table des matières" and the next "---"
+          python3 -c "
+          import re
+          with open('README.md', 'r', encoding='utf-8') as f:
+              content = f.read()
+          content = re.sub(
+              r'## Table des matières\n+\|.*?\n\n---',
+              '---',
+              content,
+              flags=re.DOTALL
+          )
+          with open('paper_clean.md', 'w', encoding='utf-8') as f:
+              f.write(content)
+          "
+
+      - name: Create metadata
+        run: |
+          cat > paper/metadata.yaml << 'YAML'
+          ---
+          title: "XERB0XI0N"
+          subtitle: "Une infrastructure pour la souveraineté humaine et la civilisation galactique"
+          author: "José Gasser (J0bot)"
+          date: "Mars 2026"
+          lang: fr
+          fontsize: 11pt
+          documentclass: article
+          geometry:
+            - a4paper
+            - margin=2.5cm
+          mainfont: "DejaVu Serif"
+          sansfont: "DejaVu Sans"
+          monofont: "DejaVu Sans Mono"
+          ---
+          YAML
+
+      - name: Generate PDF
+        run: |
+          cd paper
+          pandoc metadata.yaml paper_clean.md \
+            -o xerboxion_paper.pdf \
+            --pdf-engine=xelatex \
+            --toc \
+            --toc-depth=3 \
+            --highlight-style=tango
+
+      - name: Cleanup temp files
+        run: |
+          rm -f paper/paper_clean.md paper/metadata.yaml
+
+      - name: Commit PDF
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add paper/xerboxion_paper.pdf
+          if git diff --cached --quiet; then
+            echo "No changes to PDF"
+          else
+            git commit -m "Auto-generate xerboxion_paper.pdf from README.md"
+            git push
+          fi

@@ -25,11 +25,10 @@ jobs:
 
       - name: Prepare markdown (strip manual TOC)
         run: |
-          cd paper
           # Remove the manual TOC table between "## Table des matières" and the next "---"
           python3 -c "
           import re
-          with open('README.md', 'r', encoding='utf-8') as f:
+          with open('paper/README.md', 'r', encoding='utf-8') as f:
               content = f.read()
           content = re.sub(
               r'## Table des matières\n+\|.*?\n\n---',
@@ -37,7 +36,7 @@ jobs:
               content,
               flags=re.DOTALL
           )
-          with open('paper_clean.md', 'w', encoding='utf-8') as f:
+          with open('paper/paper_clean.md', 'w', encoding='utf-8') as f:
               f.write(content)
           "
 
@@ -63,9 +62,8 @@ jobs:
 
       - name: Generate PDF
         run: |
-          cd paper
-          pandoc metadata.yaml paper_clean.md \
-            -o xerboxion_paper.pdf \
+          pandoc paper/metadata.yaml paper/paper_clean.md \
+            -o paper/xerboxion_paper.pdf \
             --pdf-engine=xelatex \
             --toc \
             --toc-depth=3 \

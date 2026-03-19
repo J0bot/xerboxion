@@ -2,7 +2,7 @@
 
 > Créer le monde dans lequel on veut vivre.
 
-## Papier
+## Prépapier
 - [Lire le draft](./paper/README.md)
 
 ## Livre

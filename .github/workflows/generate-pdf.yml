@@ -20,8 +20,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install fonts
-        run: apk add --no-cache font-dejavu
+      - name: Install fonts and git
+        run: apk add --no-cache font-dejavu git
 
       - name: Prepare markdown (strip manual TOC)
         run: |

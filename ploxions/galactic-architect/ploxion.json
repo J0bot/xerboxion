@@ -1,0 +1,23 @@
+{
+  "id": "galactic-architect",
+  "name": "Galactic Architect",
+  "version": "0.0.1",
+  "type": "ploxion",
+  "status": "concept",
+  "description": "Universe-architecture ploxion. Manages the meta-structure of the Xerboxion digital multiverse — dimensions, galactic topologies, and reality layers.",
+  "language": "TypeScript",
+  "repository": "https://github.com/J0bot/galactic_architect",
+  "provides": ["universe-api", "dimension-manager", "architect-query", "galaxy-db"],
+  "requires": ["storage-api", "spatial-map", "runtime"],
+  "plc": {
+    "version": "0",
+    "parent_types": ["core"],
+    "children_types": ["xeri0n"],
+    "health_endpoint": "GET /health",
+    "manifest_endpoint": "GET /manifest",
+    "capabilities": {
+      "standalone": false,
+      "graceful_shutdown": true
+    }
+  }
+}

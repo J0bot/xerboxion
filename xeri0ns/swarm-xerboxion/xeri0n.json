@@ -1,0 +1,25 @@
+{
+  "id": "swarm-xerboxion",
+  "name": "Swarm Xerboxion",
+  "version": "0.0.1",
+  "type": "xeri0n",
+  "status": "alpha",
+  "description": "Multi-agent orchestration xeri0n. Mission Core, Memory Core, Agent Core, IPC server, and Discord adapter.",
+  "language": "TypeScript",
+  "repository": "https://github.com/J0bot/swarm-xerboxion",
+  "provides": ["agent-pool", "mission-queue", "memory-core", "coordinator", "discord-adapter"],
+  "requires": ["runtime", "ipc-bus", "storage-api"],
+  "agents": ["mission-core", "memory-core", "agent-core"],
+  "adapters": ["discord", "ipc"],
+  "plc": {
+    "version": "0",
+    "parent_types": ["core"],
+    "children_types": [],
+    "health_endpoint": "GET /health",
+    "manifest_endpoint": "GET /manifest",
+    "capabilities": {
+      "standalone": false,
+      "graceful_shutdown": true
+    }
+  }
+}

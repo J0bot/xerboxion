@@ -1,0 +1,24 @@
+{
+  "id": "galactic-jarvis",
+  "name": "Galactic Jarvis",
+  "version": "0.0.1",
+  "type": "xeri0n",
+  "status": "concept",
+  "description": "High-level AI assistant xeri0n. Natural-language reasoning, long-horizon planning, and full universe context.",
+  "language": "Python",
+  "repository": "https://github.com/J0bot/galactic-_jarvis",
+  "provides": ["ai-assistant", "nlp-api", "planning-core"],
+  "requires": ["agent-pool", "universe-api", "memory-core", "runtime"],
+  "model": "local-llm",
+  "plc": {
+    "version": "0",
+    "parent_types": ["core"],
+    "children_types": [],
+    "health_endpoint": "GET /health",
+    "manifest_endpoint": "GET /manifest",
+    "capabilities": {
+      "standalone": false,
+      "graceful_shutdown": true
+    }
+  }
+}

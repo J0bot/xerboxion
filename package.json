@@ -1,0 +1,36 @@
+{
+  "name": "xerboxion-monorepo",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Xerboxion ecosystem monorepo — all ploxions, xeri0ns, and platforms in one place",
+  "workspaces": [
+    "ploxions/*",
+    "xeri0ns/*",
+    "platforms/*"
+  ],
+  "scripts": {
+    "graph:view":   "npx --yes open-cli .ploxion-graph/graph-viewer.html",
+    "graph:serve":  "npx --yes serve .ploxion-graph -l 4242",
+    "dev:all":      "npm run --workspaces dev --if-present",
+    "build:all":    "npm run --workspaces build --if-present",
+    "test:all":     "npm run --workspaces test --if-present",
+    "deps:check":   "node scripts/check-deps.js",
+    "deps:update":  "node scripts/update-deps.js",
+    "submodule:init": "git submodule update --init --recursive",
+    "submodule:update": "git submodule update --remote --merge"
+  },
+  "devDependencies": {
+    "serve": "^14.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/J0bot/xerboxion"
+  },
+  "homepage": "https://github.com/J0bot/xerboxion",
+  "author": "J0bot",
+  "license": "MIT"
+}

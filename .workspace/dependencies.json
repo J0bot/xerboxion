@@ -1,0 +1,102 @@
+{
+  "version": "1.0.0",
+  "description": "Explicit dependency graph for the Xerboxion monorepo. Used by scripts/check-deps.js.",
+  "components": {
+    "xerboxion-core": {
+      "type": "core",
+      "path": "ploxions/xerboxion-core",
+      "repo": "https://github.com/J0bot/xerboxion-core",
+      "language": "rust",
+      "depends_on": [],
+      "provides": ["runtime", "process-manager", "ipc-bus", "plc-registry", "health-api"]
+    },
+    "xerax": {
+      "type": "ploxion",
+      "path": "ploxions/xerax",
+      "repo": "https://github.com/J0bot/xerax",
+      "language": "python",
+      "depends_on": ["xerboxion-core"],
+      "provides": ["thought-commands", "eeg-stream", "neural-model", "bci-api"]
+    },
+    "cubion": {
+      "type": "ploxion",
+      "path": "ploxions/cubion",
+      "repo": "https://github.com/J0bot/cubion",
+      "language": "rust",
+      "depends_on": ["xerboxion-core"],
+      "provides": ["storage-api", "cube-db", "sync-protocol", "cubion-link"]
+    },
+    "room-map": {
+      "type": "ploxion",
+      "path": "ploxions/room-map",
+      "repo": "https://github.com/J0bot/room-map",
+      "language": "typescript",
+      "depends_on": ["xerboxion-core", "cubion"],
+      "provides": ["spatial-map", "room-model", "location-api"]
+    },
+    "xerfarm": {
+      "type": "ploxion",
+      "path": "ploxions/xerfarm",
+      "repo": "https://github.com/J0bot/Xerfarm",
+      "language": "python",
+      "depends_on": ["xerboxion-core", "cubion", "room-map"],
+      "provides": ["resource-manager", "farm-control", "harvest-api"]
+    },
+    "galactic-architect": {
+      "type": "ploxion",
+      "path": "ploxions/galactic-architect",
+      "repo": "https://github.com/J0bot/galactic_architect",
+      "language": "typescript",
+      "depends_on": ["xerboxion-core", "cubion", "room-map"],
+      "provides": ["universe-api", "dimension-manager", "architect-query", "galaxy-db"]
+    },
+    "swarm-xerboxion": {
+      "type": "xeri0n",
+      "path": "xeri0ns/swarm-xerboxion",
+      "repo": "https://github.com/J0bot/swarm-xerboxion",
+      "language": "typescript",
+      "depends_on": ["xerboxion-core", "cubion", "xerax", "galactic-architect"],
+      "provides": ["agent-pool", "mission-queue", "memory-core", "coordinator", "discord-adapter"]
+    },
+    "galactic-jarvis": {
+      "type": "xeri0n",
+      "path": "xeri0ns/galactic-jarvis",
+      "repo": "https://github.com/J0bot/galactic-_jarvis",
+      "language": "python",
+      "depends_on": ["swarm-xerboxion", "galactic-architect"],
+      "provides": ["ai-assistant", "nlp-api", "planning-core"]
+    },
+    "xerboxion-os": {
+      "type": "platform",
+      "path": "platforms/xerboxion-os",
+      "repo": "https://github.com/J0bot/xerboxion-os",
+      "language": "rust/flutter",
+      "depends_on": ["xerboxion-core", "xerax", "cubion"],
+      "provides": ["ui-shell", "os-layer", "user-interface"]
+    },
+    "minecraft-os": {
+      "type": "platform",
+      "path": "platforms/minecraft-os",
+      "repo": "https://github.com/J0bot/minecraft-os",
+      "language": "java",
+      "depends_on": ["cubion"],
+      "provides": ["minecraft-ui", "cube-navigator", "cc-kernel", "prototype-env"]
+    },
+    "xerboxion-web": {
+      "type": "platform",
+      "path": "platforms/xerboxion-web",
+      "repo": "https://github.com/J0bot/xerboxion-web",
+      "language": "typescript",
+      "depends_on": ["xerboxion-core", "swarm-xerboxion"],
+      "provides": ["web-ui", "browser-interface", "dashboard"]
+    },
+    "my-website": {
+      "type": "platform",
+      "path": "platforms/my_website2",
+      "repo": "https://github.com/J0bot/my_website2",
+      "language": "php",
+      "depends_on": [],
+      "provides": ["portal", "paper-viewer", "auth-layer", "comment-system"]
+    }
+  }
+}

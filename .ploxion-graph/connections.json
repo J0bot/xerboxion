@@ -1,0 +1,198 @@
+{
+  "version": "1.0.0",
+  "description": "Complete cross-project dependency graph for the Xerboxion ecosystem",
+  "connections": [
+    {
+      "id": "c01",
+      "from": "xerax",
+      "to": "xerboxion-core",
+      "type": "depends-on",
+      "protocol": "PLC v0",
+      "description": "xerax requires core runtime for process lifecycle and IPC bus registration"
+    },
+    {
+      "id": "c02",
+      "from": "cubion",
+      "to": "xerboxion-core",
+      "type": "depends-on",
+      "protocol": "PLC v0",
+      "description": "cubion storage ploxion registers and runs on core runtime"
+    },
+    {
+      "id": "c03",
+      "from": "room-map",
+      "to": "xerboxion-core",
+      "type": "depends-on",
+      "protocol": "PLC v0",
+      "description": "room-map requires core runtime for process management"
+    },
+    {
+      "id": "c04",
+      "from": "xerfarm",
+      "to": "xerboxion-core",
+      "type": "depends-on",
+      "protocol": "PLC v0",
+      "description": "xerfarm requires core runtime for scheduling and IPC"
+    },
+    {
+      "id": "c05",
+      "from": "galactic-architect",
+      "to": "xerboxion-core",
+      "type": "depends-on",
+      "protocol": "PLC v0",
+      "description": "galactic-architect registers on core runtime"
+    },
+    {
+      "id": "c06",
+      "from": "swarm-xerboxion",
+      "to": "xerboxion-core",
+      "type": "depends-on",
+      "protocol": "IPC Bus",
+      "description": "swarm agents communicate via core IPC bus; coordinator registers with process manager"
+    },
+    {
+      "id": "c07",
+      "from": "room-map",
+      "to": "cubion",
+      "type": "consumes",
+      "protocol": "PLC v0 / storage-api",
+      "description": "room-map persists 3D spatial maps via cubion storage-api"
+    },
+    {
+      "id": "c08",
+      "from": "xerfarm",
+      "to": "cubion",
+      "type": "consumes",
+      "protocol": "PLC v0 / storage-api",
+      "description": "xerfarm stores resource data, harvest logs, and farm state via cubion"
+    },
+    {
+      "id": "c09",
+      "from": "galactic-architect",
+      "to": "cubion",
+      "type": "consumes",
+      "protocol": "PLC v0 / galaxy-db",
+      "description": "galactic-architect persists the entire universe graph via cubion galaxy-db"
+    },
+    {
+      "id": "c10",
+      "from": "swarm-xerboxion",
+      "to": "cubion",
+      "type": "consumes",
+      "protocol": "PLC v0 / memory-core",
+      "description": "swarm agents persist mission memory and agent state via cubion"
+    },
+    {
+      "id": "c11",
+      "from": "xerfarm",
+      "to": "room-map",
+      "type": "consumes",
+      "protocol": "PLC v0 / spatial-map",
+      "description": "xerfarm uses room-map spatial data to optimize farm layout and resource placement"
+    },
+    {
+      "id": "c12",
+      "from": "galactic-architect",
+      "to": "room-map",
+      "type": "consumes",
+      "protocol": "PLC v0 / spatial-map",
+      "description": "galactic-architect uses real-world spatial maps to anchor digital universe topology"
+    },
+    {
+      "id": "c13",
+      "from": "swarm-xerboxion",
+      "to": "galactic-architect",
+      "type": "consumes",
+      "protocol": "PLC v0 / universe-api",
+      "description": "swarm agents query and update the universe state via galactic-architect"
+    },
+    {
+      "id": "c14",
+      "from": "swarm-xerboxion",
+      "to": "xerax",
+      "type": "consumes",
+      "protocol": "PLC v0 / thought-commands",
+      "description": "swarm agents receive thought-commands from xerax BCI as high-priority mission triggers"
+    },
+    {
+      "id": "c15",
+      "from": "xerfarm",
+      "to": "swarm-xerboxion",
+      "type": "consumes",
+      "protocol": "PLC v0 / mission-queue",
+      "description": "xerfarm delegates complex autonomous farm tasks to swarm agents"
+    },
+    {
+      "id": "c16",
+      "from": "galactic-jarvis",
+      "to": "swarm-xerboxion",
+      "type": "depends-on",
+      "protocol": "PLC v0 / agent-pool",
+      "description": "galactic-jarvis orchestrates via swarm agent pool for distributed reasoning tasks"
+    },
+    {
+      "id": "c17",
+      "from": "galactic-jarvis",
+      "to": "galactic-architect",
+      "type": "consumes",
+      "protocol": "PLC v0 / universe-api",
+      "description": "galactic-jarvis holds full universe context from galactic-architect for long-horizon planning"
+    },
+    {
+      "id": "c18",
+      "from": "xerboxion-os",
+      "to": "xerboxion-core",
+      "type": "depends-on",
+      "protocol": "native",
+      "description": "xerboxion-os is built directly on top of core runtime as primary OS layer"
+    },
+    {
+      "id": "c19",
+      "from": "xerboxion-os",
+      "to": "xerax",
+      "type": "consumes",
+      "protocol": "PLC v0 / bci-api",
+      "description": "OS integrates thought-control from xerax for hands-free navigation"
+    },
+    {
+      "id": "c20",
+      "from": "xerboxion-os",
+      "to": "cubion",
+      "type": "consumes",
+      "protocol": "PLC v0 / storage-api",
+      "description": "OS uses cubion for all persistent user and system data storage"
+    },
+    {
+      "id": "c21",
+      "from": "minecraft-os",
+      "to": "cubion",
+      "type": "inspired-by",
+      "protocol": "conceptual",
+      "description": "The CUBION Minecraft item is a physical prototype of the cubion concept"
+    },
+    {
+      "id": "c22",
+      "from": "xerboxion-web",
+      "to": "xerboxion-core",
+      "type": "depends-on",
+      "protocol": "HTTP/WebSocket",
+      "description": "web frontend connects to core runtime health and API endpoints"
+    },
+    {
+      "id": "c23",
+      "from": "xerboxion-web",
+      "to": "swarm-xerboxion",
+      "type": "consumes",
+      "protocol": "HTTP / mission-queue",
+      "description": "web UI enqueues missions and reads agent status from swarm coordinator"
+    },
+    {
+      "id": "c24",
+      "from": "my-website",
+      "to": "xerboxion-core",
+      "type": "references",
+      "protocol": "documentation",
+      "description": "j0bot.ch presents the Xerboxion paper and links to xerboxion-core specifications"
+    }
+  ]
+}

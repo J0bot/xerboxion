@@ -1,0 +1,50 @@
+{
+  "version": "1.0.0",
+  "description": "Xeri0n registry — all XERI0N AI agents in the Xerboxion ecosystem",
+  "schema": "https://github.com/J0bot/xerboxion/standards/xeri0n-v0",
+  "xeri0ns": [
+    {
+      "id": "swarm-xerboxion",
+      "name": "Swarm Xerboxion",
+      "type": "xeri0n",
+      "tier": "orchestration",
+      "description": "Multi-agent orchestration xeri0n. Coordinates autonomous workers via Mission Core, Memory Core, Agent Core, IPC server, and a Discord adapter.",
+      "status": "alpha",
+      "language": "TypeScript",
+      "repository": "https://github.com/J0bot/swarm-xerboxion",
+      "path": "xeri0ns/swarm-xerboxion",
+      "provides": ["agent-pool", "mission-queue", "memory-core", "coordinator", "discord-adapter"],
+      "requires": ["runtime", "ipc-bus", "storage-api"],
+      "capabilities": {
+        "standalone": false,
+        "agents": ["mission-core", "memory-core", "agent-core"],
+        "adapters": ["discord", "ipc"],
+        "health_endpoint": "GET /health",
+        "graceful_shutdown": true,
+        "manifest_endpoint": "GET /manifest"
+      },
+      "tags": ["swarm", "agents", "orchestration", "autonomous", "discord", "ipc"]
+    },
+    {
+      "id": "galactic-jarvis",
+      "name": "Galactic Jarvis",
+      "type": "xeri0n",
+      "tier": "ai",
+      "description": "High-level AI assistant xeri0n. Provides natural-language reasoning, long-horizon planning, and full universe context across the entire ecosystem.",
+      "status": "concept",
+      "language": "Python",
+      "repository": "https://github.com/J0bot/galactic-_jarvis",
+      "path": "xeri0ns/galactic-jarvis",
+      "provides": ["ai-assistant", "nlp-api", "planning-core"],
+      "requires": ["agent-pool", "universe-api", "memory-core", "runtime"],
+      "capabilities": {
+        "standalone": false,
+        "model": "local-llm",
+        "health_endpoint": "GET /health",
+        "graceful_shutdown": true,
+        "manifest_endpoint": "GET /manifest"
+      },
+      "tags": ["ai", "assistant", "galactic", "nlp", "llm", "planning"]
+    }
+  ]
+}

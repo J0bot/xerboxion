@@ -1,0 +1,7 @@
+packages:
+  # Ploxion components
+  - 'ploxions/*'
+  # Xeri0n AI agents
+  - 'xeri0ns/*'
+  # Platform implementations
+  - 'platforms/*'

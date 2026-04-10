@@ -1,0 +1,23 @@
+# Xerboxion Rust Workspace
+# Rust ploxions that live in this monorepo
+[workspace]
+members = [
+    "ploxions/xerboxion-core",
+    "ploxions/cubion",
+]
+resolver = "2"
+
+[workspace.package]
+version     = "0.0.1"
+authors     = ["J0bot"]
+license     = "MIT"
+edition     = "2021"
+repository  = "https://github.com/J0bot/xerboxion"
+homepage    = "https://github.com/J0bot/xerboxion"
+
+[workspace.dependencies]
+tokio      = { version = "1", features = ["full"] }
+serde      = { version = "1", features = ["derive"] }
+serde_json = "1"
+anyhow     = "1"
+tracing    = "0.1"

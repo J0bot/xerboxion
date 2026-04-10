@@ -1,0 +1,23 @@
+{
+  "id": "cubion",
+  "name": "Cubion",
+  "version": "0.0.1",
+  "type": "ploxion",
+  "status": "alpha",
+  "description": "Distributed modular storage ploxion. Implements the Cubion hardware standard in software.",
+  "language": "Rust",
+  "repository": "https://github.com/J0bot/cubion",
+  "provides": ["storage-api", "cube-db", "sync-protocol", "cubion-link"],
+  "requires": ["runtime"],
+  "plc": {
+    "version": "0",
+    "parent_types": ["core"],
+    "children_types": ["ploxion"],
+    "health_endpoint": "GET /health",
+    "manifest_endpoint": "GET /manifest",
+    "capabilities": {
+      "standalone": true,
+      "graceful_shutdown": true
+    }
+  }
+}

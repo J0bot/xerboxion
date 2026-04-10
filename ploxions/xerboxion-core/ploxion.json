@@ -1,0 +1,23 @@
+{
+  "id": "xerboxion-core",
+  "name": "Xerboxion Core",
+  "version": "0.0.1",
+  "type": "core",
+  "status": "alpha",
+  "description": "Core runtime, process manager, IPC bus, and PLC registry for the Xerboxion ecosystem.",
+  "language": "Rust",
+  "repository": "https://github.com/J0bot/xerboxion-core",
+  "provides": ["runtime", "process-manager", "ipc-bus", "plc-registry", "health-api"],
+  "requires": [],
+  "plc": {
+    "version": "0",
+    "parent_types": [],
+    "children_types": ["ploxion", "xeri0n"],
+    "health_endpoint": "GET /health",
+    "manifest_endpoint": "GET /manifest",
+    "capabilities": {
+      "standalone": true,
+      "graceful_shutdown": true
+    }
+  }
+}

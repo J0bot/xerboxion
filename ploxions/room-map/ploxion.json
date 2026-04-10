@@ -1,0 +1,23 @@
+{
+  "id": "room-map",
+  "name": "Room Map",
+  "version": "0.0.1",
+  "type": "ploxion",
+  "status": "alpha",
+  "description": "Spatial mapping ploxion. Builds and maintains real-time 3D maps of physical environments.",
+  "language": "TypeScript",
+  "repository": "https://github.com/J0bot/room-map",
+  "provides": ["spatial-map", "room-model", "location-api"],
+  "requires": ["storage-api", "runtime"],
+  "plc": {
+    "version": "0",
+    "parent_types": ["core"],
+    "children_types": [],
+    "health_endpoint": "GET /health",
+    "manifest_endpoint": "GET /manifest",
+    "capabilities": {
+      "standalone": true,
+      "graceful_shutdown": true
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "id": "xerfarm",
+  "name": "Xerfarm",
+  "version": "0.0.1",
+  "type": "ploxion",
+  "status": "alpha",
+  "description": "Agriculture and resource-management ploxion. Automates cultivation, tracks resource flows, and manages harvest operations.",
+  "language": "Python",
+  "repository": "https://github.com/J0bot/Xerfarm",
+  "provides": ["resource-manager", "farm-control", "harvest-api"],
+  "requires": ["storage-api", "spatial-map", "runtime"],
+  "plc": {
+    "version": "0",
+    "parent_types": ["core"],
+    "children_types": [],
+    "health_endpoint": "GET /health",
+    "manifest_endpoint": "GET /manifest",
+    "capabilities": {
+      "standalone": true,
+      "graceful_shutdown": true
+    }
+  }
+}

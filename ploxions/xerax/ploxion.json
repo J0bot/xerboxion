@@ -1,0 +1,23 @@
+{
+  "id": "xerax",
+  "name": "Xerax",
+  "version": "0.0.1",
+  "type": "ploxion",
+  "status": "alpha",
+  "description": "Brain-Computer Interface ploxion. EEG signal acquisition, neural network training, and thought-to-command translation via BrainFlow.",
+  "language": "Python",
+  "repository": "https://github.com/J0bot/xerax",
+  "provides": ["thought-commands", "eeg-stream", "neural-model", "bci-api"],
+  "requires": ["runtime"],
+  "plc": {
+    "version": "0",
+    "parent_types": ["core"],
+    "children_types": [],
+    "health_endpoint": "GET /health",
+    "manifest_endpoint": "GET /manifest",
+    "capabilities": {
+      "standalone": true,
+      "graceful_shutdown": true
+    }
+  }
+}

@@ -1,0 +1,63 @@
+# Git submodule references for all Xerboxion ecosystem repositories
+# Run `npm run submodule:init` to initialize all submodules
+# Run `npm run submodule:update` to update all submodules to latest
+
+[submodule "ploxions/xerboxion-core"]
+	path   = ploxions/xerboxion-core
+	url    = https://github.com/J0bot/xerboxion-core
+	branch = main
+
+[submodule "ploxions/xerax"]
+	path   = ploxions/xerax
+	url    = https://github.com/J0bot/xerax
+	branch = main
+
+[submodule "ploxions/cubion"]
+	path   = ploxions/cubion
+	url    = https://github.com/J0bot/cubion
+	branch = main
+
+[submodule "ploxions/room-map"]
+	path   = ploxions/room-map
+	url    = https://github.com/J0bot/room-map
+	branch = main
+
+[submodule "ploxions/xerfarm"]
+	path   = ploxions/xerfarm
+	url    = https://github.com/J0bot/Xerfarm
+	branch = main
+
+[submodule "ploxions/galactic-architect"]
+	path   = ploxions/galactic-architect
+	url    = https://github.com/J0bot/galactic_architect
+	branch = main
+
+[submodule "xeri0ns/swarm-xerboxion"]
+	path   = xeri0ns/swarm-xerboxion
+	url    = https://github.com/J0bot/swarm-xerboxion
+	branch = main
+
+[submodule "xeri0ns/galactic-jarvis"]
+	path   = xeri0ns/galactic-jarvis
+	url    = https://github.com/J0bot/galactic-_jarvis
+	branch = main
+
+[submodule "platforms/xerboxion-os"]
+	path   = platforms/xerboxion-os
+	url    = https://github.com/J0bot/xerboxion-os
+	branch = main
+
+[submodule "platforms/minecraft-os"]
+	path   = platforms/minecraft-os
+	url    = https://github.com/J0bot/minecraft-os
+	branch = main
+
+[submodule "platforms/xerboxion-web"]
+	path   = platforms/xerboxion-web
+	url    = https://github.com/J0bot/xerboxion-web
+	branch = main
+
+[submodule "platforms/my_website2"]
+	path   = platforms/my_website2
+	url    = https://github.com/J0bot/my_website2
+	branch = main

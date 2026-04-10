@@ -1,0 +1,66 @@
+# ── OS & editors ──────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*~
+*.swp
+*.swo
+.idea/
+.vscode/
+*.iml
+
+# ── Node.js (monorepo root & workspaces) ──────────────────
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnpm-store/
+
+# ── Rust ──────────────────────────────────────────────────
+/target/
+**/target/
+Cargo.lock         # keep for binary crates; remove if lib-only
+*.rlib
+
+# ── Python ────────────────────────────────────────────────
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.egg-info/
+dist/
+build/
+
+# ── Flutter ───────────────────────────────────────────────
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+pubspec.lock
+
+# ── Build artifacts ───────────────────────────────────────
+/dist/
+**/dist/
+*.min.js.map
+
+# ── Vendor / bundled libs KEPT in repo ────────────────────
+# cytoscape.min.js is intentionally committed alongside
+# graph-viewer.html so the viewer works offline.
+!.ploxion-graph/cytoscape.min.js
+
+# ── Environment / secrets ─────────────────────────────────
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# ── Logs ──────────────────────────────────────────────────
+*.log
+logs/

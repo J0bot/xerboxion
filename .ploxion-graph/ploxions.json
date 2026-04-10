@@ -1,0 +1,157 @@
+{
+  "version": "1.0.0",
+  "description": "Ploxion registry — all PL0XI0N components in the Xerboxion ecosystem",
+  "schema": "https://github.com/J0bot/xerboxion/standards/ploxion-v0",
+  "ploxions": [
+    {
+      "id": "xerboxion-core",
+      "name": "Xerboxion Core",
+      "type": "core",
+      "tier": "foundation",
+      "description": "Core runtime, process manager, IPC bus, and PLC registry — the foundational layer upon which every other ploxion runs.",
+      "status": "alpha",
+      "language": "Rust",
+      "repository": "https://github.com/J0bot/xerboxion-core",
+      "path": "ploxions/xerboxion-core",
+      "provides": ["runtime", "process-manager", "ipc-bus", "plc-registry", "health-api"],
+      "requires": [],
+      "capabilities": {
+        "standalone": true,
+        "health_endpoint": "GET /health",
+        "graceful_shutdown": true,
+        "manifest_endpoint": "GET /manifest"
+      },
+      "plc": {
+        "parent_types": [],
+        "children_types": ["ploxion", "xeri0n"],
+        "protocol_version": "0"
+      },
+      "tags": ["core", "runtime", "kernel", "rust", "plc"]
+    },
+    {
+      "id": "xerax",
+      "name": "Xerax",
+      "type": "ploxion",
+      "tier": "interface",
+      "description": "Brain-Computer Interface ploxion. Acquires EEG signals via BrainFlow, trains neural networks, and translates thought-patterns into typed commands.",
+      "status": "alpha",
+      "language": "Python",
+      "repository": "https://github.com/J0bot/xerax",
+      "path": "ploxions/xerax",
+      "provides": ["thought-commands", "eeg-stream", "neural-model", "bci-api"],
+      "requires": ["runtime"],
+      "capabilities": {
+        "standalone": true,
+        "health_endpoint": "GET /health",
+        "graceful_shutdown": true,
+        "manifest_endpoint": "GET /manifest"
+      },
+      "plc": {
+        "parent_types": ["core"],
+        "children_types": [],
+        "protocol_version": "0"
+      },
+      "tags": ["bci", "eeg", "neural", "brainflow", "thought-control"]
+    },
+    {
+      "id": "cubion",
+      "name": "Cubion",
+      "type": "ploxion",
+      "tier": "storage",
+      "description": "Distributed modular storage ploxion. Implements the Cubion hardware standard in software: pluggable cube-shaped storage units with physical-world anchoring.",
+      "status": "alpha",
+      "language": "Rust",
+      "repository": "https://github.com/J0bot/cubion",
+      "path": "ploxions/cubion",
+      "provides": ["storage-api", "cube-db", "sync-protocol", "cubion-link"],
+      "requires": ["runtime"],
+      "capabilities": {
+        "standalone": true,
+        "health_endpoint": "GET /health",
+        "graceful_shutdown": true,
+        "manifest_endpoint": "GET /manifest"
+      },
+      "plc": {
+        "parent_types": ["core"],
+        "children_types": ["ploxion"],
+        "protocol_version": "0"
+      },
+      "tags": ["storage", "database", "cubion", "distributed", "hardware"]
+    },
+    {
+      "id": "room-map",
+      "name": "Room Map",
+      "type": "ploxion",
+      "tier": "spatial",
+      "description": "Spatial mapping ploxion. Builds and maintains real-time 3D maps of physical environments to give the ecosystem spatial awareness.",
+      "status": "alpha",
+      "language": "TypeScript",
+      "repository": "https://github.com/J0bot/room-map",
+      "path": "ploxions/room-map",
+      "provides": ["spatial-map", "room-model", "location-api"],
+      "requires": ["storage-api", "runtime"],
+      "capabilities": {
+        "standalone": true,
+        "health_endpoint": "GET /health",
+        "graceful_shutdown": true,
+        "manifest_endpoint": "GET /manifest"
+      },
+      "plc": {
+        "parent_types": ["core"],
+        "children_types": [],
+        "protocol_version": "0"
+      },
+      "tags": ["spatial", "mapping", "3d", "environment", "lidar"]
+    },
+    {
+      "id": "xerfarm",
+      "name": "Xerfarm",
+      "type": "ploxion",
+      "tier": "resources",
+      "description": "Agriculture and resource-management ploxion. Automates cultivation, tracks resource flows, and manages harvest operations.",
+      "status": "alpha",
+      "language": "Python",
+      "repository": "https://github.com/J0bot/Xerfarm",
+      "path": "ploxions/xerfarm",
+      "provides": ["resource-manager", "farm-control", "harvest-api"],
+      "requires": ["storage-api", "spatial-map", "runtime"],
+      "capabilities": {
+        "standalone": true,
+        "health_endpoint": "GET /health",
+        "graceful_shutdown": true,
+        "manifest_endpoint": "GET /manifest"
+      },
+      "plc": {
+        "parent_types": ["core"],
+        "children_types": [],
+        "protocol_version": "0"
+      },
+      "tags": ["agriculture", "resources", "automation", "food", "sustainability"]
+    },
+    {
+      "id": "galactic-architect",
+      "name": "Galactic Architect",
+      "type": "ploxion",
+      "tier": "universe",
+      "description": "Universe-architecture ploxion. Manages the meta-structure of the Xerboxion digital multiverse — dimensions, galactic topologies, and reality layers.",
+      "status": "concept",
+      "language": "TypeScript",
+      "repository": "https://github.com/J0bot/galactic_architect",
+      "path": "ploxions/galactic-architect",
+      "provides": ["universe-api", "dimension-manager", "architect-query", "galaxy-db"],
+      "requires": ["storage-api", "spatial-map", "runtime"],
+      "capabilities": {
+        "standalone": false,
+        "health_endpoint": "GET /health",
+        "graceful_shutdown": true,
+        "manifest_endpoint": "GET /manifest"
+      },
+      "plc": {
+        "parent_types": ["core"],
+        "children_types": ["xeri0n"],
+        "protocol_version": "0"
+      },
+      "tags": ["universe", "architecture", "galactic", "meta", "dimensions"]
+    }
+  ]
+}
